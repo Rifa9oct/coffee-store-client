@@ -1,7 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import img from "../assets/logo1.png"
 import { useState } from "react";
 import CoffeeCard from "../components/CoffeeCard";
+import { BsCup } from "react-icons/bs";
 
 const Root = () => {
     const bg = {
@@ -22,13 +23,16 @@ const Root = () => {
             </div>
             <div className="my-32 max-w-[1320px] mx-auto">
                 <h1 className="text-center text-5xl text-amber-900 font-semibold">Our Popular Products</h1>
+                <Link to = "/addCoffee">
+                    <p className='text-center mx-auto mt-5 bg-[#E3B577] w-[120px] rounded text-xl text-white'>Add Coffee <BsCup className="inline text-amber-900"></BsCup></p>
+                </Link>
                 <div className="mt-16 grid grid-cols-2 juystify-center items-center gap-6">
                     {
-                        coffees.map(coffee => <CoffeeCard 
-                        key={coffee._id}
-                        coffee={coffee}
-                        coffees={coffees}
-                        setCoffees={setCoffees}></CoffeeCard>)
+                        coffees.map(coffee => <CoffeeCard
+                            key={coffee._id}
+                            coffee={coffee}
+                            coffees={coffees}
+                            setCoffees={setCoffees}></CoffeeCard>)
                     }
                 </div>
             </div>

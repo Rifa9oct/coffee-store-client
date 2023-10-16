@@ -1,5 +1,6 @@
 import { BsFillEyeFill } from "react-icons/bs";
 import { MdModeEdit, MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
@@ -29,7 +30,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
                                 'Your coffee has been deleted.',
                                 'success'
                             )
-                            const remaining =coffees.filter (cof => cof._id !== _id)
+                            const remaining = coffees.filter(cof => cof._id !== _id)
                             setCoffees(remaining);
                         }
 
@@ -49,7 +50,9 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
             </div>
             <div className="flex flex-col">
                 <button className="h-10 w-10 rounded bg-[#D2B48C] text-white"><BsFillEyeFill className="text-xl mx-auto"></BsFillEyeFill></button>
-                <button className="h-10 w-10 rounded bg-[#3C393B] text-white my-4"><MdModeEdit className="text-xl mx-auto"></MdModeEdit></button>
+                <Link to={`/updateCoffee/${_id}`}>
+                    <button className="h-10 w-10 rounded bg-yellow-800 hover:bg-yellow-950 text-white my-4"><MdModeEdit className="text-xl mx-auto"></MdModeEdit></button>
+                </Link>
                 <button onClick={() => handledelete(_id)} className="h-10 w-10 rounded bg-[#EA4744] hover:bg-red-700 text-white"><MdDelete className="text-xl mx-auto"></MdDelete></button>
             </div>
         </div>
