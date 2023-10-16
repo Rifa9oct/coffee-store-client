@@ -97,7 +97,7 @@ const AddCoffee = () => {
                     </div>
                 </div>
                 <div className="flex justify-center">
-                    <input className="btn btn-block bg-[#D2B48C] hover:bg-amber-900 hover:text-white text-[#331A15] w-[1096px]" type="submit" value="Add Coffee" />
+                    <input className="text-amber-900 btn btn-block bg-[#D2B48C] hover:bg-amber-900 hover:text-white text-[#331A15] w-[1096px]" type="submit" value="Add Coffee" />
                 </div>
             </form>
         </div>
