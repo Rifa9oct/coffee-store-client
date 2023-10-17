@@ -10,17 +10,32 @@ const SignUp = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const user = {email, password};
-        console.log(user);
 
         creatUser(email,password)
         .then(result =>{
             console.log(result.user);
-            Swal.fire(
-                'Good job!',
-                'Sign Up successfully!',
-                'success'
-              )
+
+            //new user has been created
+            const createdAt = result.user?.metadata?.creationTime;
+            const user = {email, createdAt};
+            fetch("http://localhost:5000/users",{
+                method:"POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(data =>{
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire(
+                        'Great!',
+                        'User added to the database.',
+                        'success'
+                      )
+                }
+            })
         })
         .catch(error =>{
             console.log(error);
