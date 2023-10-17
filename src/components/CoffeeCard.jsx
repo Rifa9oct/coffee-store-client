@@ -18,7 +18,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/coffees/${_id}`, {
+                fetch(`https://coffee-store-server-gzz93wejl-kohinur-akthers-projects.vercel.app/coffees/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -38,6 +38,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
             }
         })
     }
+
     return (
         <div className="bg-[#F5F4F1] flex items-center justify-between gap-16 px-12">
             <div className="flex items-center gap-8">
